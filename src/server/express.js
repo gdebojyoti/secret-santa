@@ -67,7 +67,7 @@ app.use('*', (req, res) => {
   return res.send(indexHTML)
 })
 
-const PORT = 8080
+const PORT = 8123
 
 // run express server on port 9000
 app.listen(PORT, () => {
