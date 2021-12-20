@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import MetaTags from 'shared/components/common/MetaTags'
+import Footer from 'shared/components/common/Footer'
 import Image from 'shared/components/common/Image'
 import Signup from 'shared/components/Welcome/Signup'
 import Login from 'shared/components/Welcome/Login'
@@ -34,9 +35,7 @@ const Welcome = () => {
 
       <Flip showSignup={showSignup} flip={() => setShowSignup(!showSignup)} />
 
-      <footer css={footerStyle}>
-        Made with ❤️ by <strong>Debojyoti Ghosh</strong>
-      </footer>
+      <Footer />
     </div>
   )
 }
