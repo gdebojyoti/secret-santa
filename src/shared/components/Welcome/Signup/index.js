@@ -28,7 +28,7 @@ const Signup = () => {
 
     // redirect to 'events' page after successful signup
     if (status === 0) {
-      window.location.href = './events'
+      window.location.href = '/events'
     }
   }
   return (

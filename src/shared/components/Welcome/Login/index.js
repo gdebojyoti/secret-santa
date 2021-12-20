@@ -28,9 +28,10 @@ const Login = () => {
 
     // redirect to 'events' page after login
     if (status === 0) {
-      window.location.href = './events'
+      window.location.href = '/events'
     }
   }
+  
   return (
     <>
       <h2>Log in</h2>

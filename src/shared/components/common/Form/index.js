@@ -23,19 +23,34 @@ const Form = ({ onSubmit: onSubmitProp, fields, isEnabled, error, cta = 'Submit'
 
   return (
     <form onSubmit={onSubmit}>
-      {fields.map(({ type, key, label, placeholder, isRequired }) => {
+      {fields.map(({ type, key, component: Component, label, placeholder, isRequired }) => {
         const [value, setValue] = useState('')
         const onChange = (e) => {
-          const fieldValue = e.target.value
+          const fieldValue = type === 'custom' ? e : e.target.value
           setValue(fieldValue) // update field input
           onChangeForm(key, fieldValue) // update form data
         }
-        return (
-          <div key={key}>
-            <label>{label}</label>
-            <input onChange={onChange} value={value} name={key} type={type} placeholder={placeholder} required={isRequired} />
-          </div>
-        )
+        switch (type) {
+          case 'custom': {
+            return (
+              <Component
+                key={key}
+                label={label}
+                placeholder={placeholder}
+                isRequired={isRequired}
+                onChange={onChange}
+              />
+            )
+          }
+          default: {
+            return (
+              <div key={key}>
+                <label>{label}</label>
+                <input onChange={onChange} value={value} name={key} type={type} placeholder={placeholder} required={isRequired} />
+              </div>
+            )
+          }
+        }
       })}
 
       {error && <div css={errorStyle}>{error}</div>}
