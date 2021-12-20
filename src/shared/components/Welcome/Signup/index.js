@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import Form from 'shared/components/common/Form'
 
@@ -26,12 +26,16 @@ const Signup = () => {
       setIsFormEnabled(true)
     }
 
+    // redirect to 'events' page after successful signup
     if (status === 0) {
-      window.location.href = './login'
+      window.location.href = './events'
     }
   }
   return (
-    <Form onSubmit={onSubmit} fields={fields} isEnabled={isFormEnabled} error={error} />
+    <>
+      <h2>Sign up</h2>
+      <Form onSubmit={onSubmit} fields={fields} isEnabled={isFormEnabled} error={error} cta='Sign up' />
+    </>
   )
 }
 

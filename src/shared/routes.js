@@ -9,12 +9,12 @@ const routes = [
   },
   // {
   //   path: '/verify-user',
-  //   component: Character,
+  //   component: VerifyUser,
   //   isExact: true
   // },
   // {
-  //   path: '/create-event',
-  //   component: Characters,
+  //   path: '/events/new',
+  //   component: NewEvent,
   //   isExact: true
   // },
   {
@@ -24,7 +24,7 @@ const routes = [
   },
   // {
   //   path: '/events',
-  //   component: AdventureRank,
+  //   component: AllEvents,
   //   isExact: true
   // }
 ]

@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { errorStyle } from './style'
 
-const Form = ({ onSubmit: onSubmitProp, fields, isEnabled, error }) => {
+const Form = ({ onSubmit: onSubmitProp, fields, isEnabled, error, cta = 'Submit' }) => {
   const [formData, setFormData] = useState({})
   
   const onSubmit = (e) => {
@@ -39,7 +39,7 @@ const Form = ({ onSubmit: onSubmitProp, fields, isEnabled, error }) => {
       })}
 
       {error && <div css={errorStyle}>{error}</div>}
-      <button disabled={!isEnabled} type='submit'>Submit!</button>
+      <button disabled={!isEnabled} type='submit'>{cta}</button>
     </form>
   )
 }
