@@ -11,15 +11,14 @@ import logo from 'shared/assets/santa-claus.png'
 import {
   pageStyle,
   logoStyle,
-  flipStyle,
-  footerStyle
+  flipStyle
 } from './style'
 
 const Welcome = () => {
   const [showSignup, setShowSignup] = useState(true)
   
   return (
-    <div css={pageStyle}>
+    <div className='page' css={pageStyle}>
       <MetaTags />
 
       <header>

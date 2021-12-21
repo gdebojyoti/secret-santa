@@ -51,7 +51,7 @@ const EventDetail = ({ match }) => {
   }
 
   return (
-    <div css={pageStyle}>
+    <div className='page' css={pageStyle}>
       <MetaTags />
 
       <header>
