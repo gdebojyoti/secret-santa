@@ -1,4 +1,5 @@
 export const swatches = {
-  santaRed: '#f00',
+  santaRed: '#f46',
   christmasGreen: '#0f0',
+  lightGray: '#ddd'
 }
