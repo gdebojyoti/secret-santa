@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
 
 import MetaTags from 'shared/components/common/MetaTags'
+import Header from 'shared/components/common/Header'
 import Footer from 'shared/components/common/Footer'
-import Image from 'shared/components/common/Image'
 import Form from 'shared/components/common/Form'
-
-import logo from 'shared/assets/santa-claus.png'
 
 import { createEvent } from './actions'
 import { fields } from './data'
-import { pageStyle, headerStyle, headingStyle, h2Style, logoStyle, formStyle } from './style'
+import { pageStyle, h2Style, formStyle } from './style'
 
 const NewEvent = () => {
   const [isFormEnabled, setIsFormEnabled] = useState(true)
@@ -42,12 +40,7 @@ const NewEvent = () => {
     <div className='page' css={pageStyle}>
       <MetaTags />
 
-      <header css={headerStyle}>
-        <Image src={logo} style={logoStyle} alt='Secret Santa Dx logo' />
-        <h1 css={headingStyle}>
-          Secret Santa 🤫🎅
-        </h1>
-      </header>
+      <Header />
 
       <h2 css={h2Style}><span className='light'>Create</span> New Event</h2>
       <Form
