@@ -9,7 +9,7 @@ import logo from 'shared/assets/santa-claus.png'
 
 import { createEvent } from './actions'
 import { fields } from './data'
-import { pageStyle, logoStyle } from './style'
+import { pageStyle, headerStyle, headingStyle, h2Style, logoStyle, formStyle } from './style'
 
 const NewEvent = () => {
   const [isFormEnabled, setIsFormEnabled] = useState(true)
@@ -42,16 +42,22 @@ const NewEvent = () => {
     <div className='page' css={pageStyle}>
       <MetaTags />
 
-      <header>
+      <header css={headerStyle}>
         <Image src={logo} style={logoStyle} alt='Secret Santa Dx logo' />
-        <h1>
-          Secret Santa Dx 🤫🎅 <br />
-          The real app with 100% secrecy!
+        <h1 css={headingStyle}>
+          Secret Santa 🤫🎅
         </h1>
       </header>
 
-      <h2>New Event page</h2>
-      <Form onSubmit={onSubmit} fields={fields} isEnabled={isFormEnabled} error={error} cta='Create event' />
+      <h2 css={h2Style}><span className='light'>Create</span> New Event</h2>
+      <Form
+        onSubmit={onSubmit}
+        fields={fields}
+        isEnabled={isFormEnabled}
+        error={error}
+        cta='Create event'
+        style={formStyle}
+      />
 
       <Footer />
     </div>

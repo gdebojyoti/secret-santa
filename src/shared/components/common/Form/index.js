@@ -5,7 +5,7 @@ import Button from 'shared/components/common/Button'
 
 import { formStyle, inputStyle, errorStyle, ctaStyle } from './style'
 
-const Form = ({ onSubmit: onSubmitProp, fields, isEnabled, error, cta = 'Submit' }) => {
+const Form = ({ onSubmit: onSubmitProp, fields, isEnabled, error, cta = 'Submit', style }) => {
   const [formData, setFormData] = useState({})
   
   const onSubmit = (e) => {
@@ -25,7 +25,7 @@ const Form = ({ onSubmit: onSubmitProp, fields, isEnabled, error, cta = 'Submit'
   }
 
   return (
-    <form css={formStyle} onSubmit={onSubmit}>
+    <form css={[formStyle, style]} onSubmit={onSubmit}>
       {fields.map(({ type, key, component: Component, label, placeholder, isRequired }) => {
         const [value, setValue] = useState('')
         const onChange = (e) => {

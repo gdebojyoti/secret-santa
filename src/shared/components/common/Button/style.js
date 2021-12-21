@@ -12,11 +12,16 @@ export const buttonStyle = css`
   border-radius: 4px;
   cursor: pointer;
 
+  color: #333;
+  background-color: #e7e7e7;
+  text-transform: uppercase;
+
   /* variants */
+  &.default {}
+  
   &.primary {
     color: #fff;
     background-color: ${swatches.santaRed};
-    text-transform: uppercase;
   }
 
   &.full-width {

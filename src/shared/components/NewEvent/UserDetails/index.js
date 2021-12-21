@@ -1,7 +1,12 @@
 import { useState } from 'react'
 
+import Input from 'shared/components/common/Input'
+import Button from 'shared/components/common/Button'
+
+import { userDetailsStyle, labelStyle, addCtaStyle, rowLabelStyle, deleteCtaStyle } from './style'
+
 const UserDetails = ({ onChange: onChangeProp, label }) => {
-  const [details, setDetails] = useState([])
+  const [details, setDetails] = useState([{}])
   const onChange = (index, key, value) => {
     const rowData = details[index] || {}
     rowData[key] = value
@@ -22,13 +27,13 @@ const UserDetails = ({ onChange: onChangeProp, label }) => {
     onChangeProp(newDetails)
   }
   return (
-    <div>
-      <div>{label}</div>
+    <div css={userDetailsStyle} className='input'>
+      <div css={labelStyle}>{label}</div>
       {details.map((detail, index) => {
         return <Row key={index} data={detail} index={index} onChange={onChange} onDelete={() => onDelete(index)} />
       })}
       
-      <button onClick={addUser} type='button'>Add another user</button>
+      <Button onClick={addUser} text='Add another user' variants='full-width' style={addCtaStyle} />
     </div>
   )
 }
@@ -53,7 +58,12 @@ const fields = [
 const Row = ({ data, onChange: onChangeProp, index, onDelete }) => {
   return (
     <div>
-      {fields.map(({ type, key, label, isRequired }) => {
+      <div css={rowLabelStyle}>
+        <span>User #{index + 1}</span>
+        <button css={deleteCtaStyle} onClick={onDelete} type='button'>Delete user</button>
+      </div>
+
+      {fields.map(({ type, key, label, isRequired }, fieldIndex) => {
         const [value, setValue] = useState('')
         const onChange = (e) => {
           const fieldValue = e.target.value
@@ -62,19 +72,17 @@ const Row = ({ data, onChange: onChangeProp, index, onDelete }) => {
         }
         return (
           <div key={key}>
-            <input
+            <Input
               onChange={onChange}
-              name={key}
               value={data[key] || ''}
+              name={key}
               type={type}
               placeholder={label}
-              required={isRequired}
+              isRequired={isRequired}
             />
           </div>
         )
       })}
-
-      <button onClick={onDelete} type='button'>Delete user</button>
     </div>
   )
 }

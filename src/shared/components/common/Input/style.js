@@ -10,7 +10,6 @@ export const inputWrapperStyle = css`
 export const labelStyle = css`
   font-size: 12px;
   font-weight: 700;
-  /* text-transform: uppercase; */
 `
 
 export const inputFieldStyle = css`

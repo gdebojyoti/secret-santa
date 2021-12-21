@@ -8,14 +8,18 @@ export const formStyle = css`
   max-width: 350px;
   margin-top: 30px;
 
-  .input:first-of-type {
-    margin-top: 0;
+  .input {
+    width: 100%;
+    margin-top: 18px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 `
 
 export const inputStyle = css`
-  width: 100%;
-  margin-top: 18px;
+  
 `
 
 export const errorStyle = css`
