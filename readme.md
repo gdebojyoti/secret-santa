@@ -18,3 +18,10 @@
 
 - [ ] List of secret santa events (reach this URL after logiin if user has 1 or more projects)
 - name, members, date of creation, status (draft / started)
+
+----
+
+### tech stuff
+
+- @babel/transform-runtime -> to enable async
+- react-router-dom v5 used instead of v6 (`withRouter`)
