@@ -10,12 +10,12 @@ export const trackingPageGa = (page) => {
   ReactGA.pageview(page)
 }
 
-export const eventGa = ({category, action, label = '', value, nonInteraction = false}) => {
+export const track = ({category, action, label = '', value, nonInteraction = false}) => {
   ReactGA.event({
     category, // Required
     action, // Required
-    label: 'labelName',
-    value: 10,
+    label,
+    value,
     nonInteraction,
   })
 }

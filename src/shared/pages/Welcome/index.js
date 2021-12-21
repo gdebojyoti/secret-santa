@@ -10,6 +10,7 @@ import Login from 'shared/components/Welcome/Login'
 
 import logo from 'shared/assets/santa-hat.png'
 
+import tracking from './tracking'
 import {
   pageStyle,
   logoStyle,
@@ -26,6 +27,7 @@ const Welcome = () => {
   const onClickCta = () => {
     // setShowSignup(true)
     setShowModal(true)
+    tracking('WELCOME_OPEN_MODAL')
   }
 
   const onCloseModal = () => {
@@ -58,8 +60,8 @@ const Welcome = () => {
       <Button text='Get Started' variants='primary full-width' style={ctaStyle} onClick={onClickCta} />
 
       {showModal && <Modal onClose={onCloseModal}>
-        {showSignup && <Signup />}
-        {!showSignup && <Login />}
+        {showSignup && <Signup tracking={tracking} />}
+        {!showSignup && <Login tracking={tracking} />}
         <Flip showSignup={showSignup} flip={onFlipClick} />
       </Modal>}
 
