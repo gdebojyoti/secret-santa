@@ -5,6 +5,7 @@ import Header from 'shared/components/common/Header'
 import Footer from 'shared/components/common/Footer'
 import Form from 'shared/components/common/Form'
 
+import tracking from './tracking'
 import { createEvent } from './actions'
 import { fields } from './data'
 import { pageStyle, h2Style, formStyle } from './style'
@@ -16,10 +17,12 @@ const NewEvent = () => {
   const onSubmit = async (data) => {
     // disable button & make api call
     setIsFormEnabled(false)
+    tracking('NEW_EVENT_CTA_CLICKED')
     const res = await createEvent(data)
 
     const { status, message } = res
     if (status === 1) {
+      tracking('NEW_EVENT_ERROR')
       setError(message || 'Some error occurred. Please try again')
       setTimeout(() => {
         setError('')
@@ -31,6 +34,7 @@ const NewEvent = () => {
 
     // redirect to 'events' page after login
     if (status === 0) {
+      tracking('NEW_EVENT_CREATED')
       const { data: { eventId } = {} } = res
       window.location.href = `/event/${eventId}`
     }

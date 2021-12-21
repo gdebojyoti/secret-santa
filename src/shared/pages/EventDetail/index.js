@@ -8,6 +8,7 @@ import Footer from 'shared/components/common/Footer'
 
 import successGraphic from 'shared/assets/gift.png'
 
+import tracking from './tracking'
 import { getEventDetails, triggerEvent } from './actions'
 import {
   pageStyle,
@@ -34,17 +35,19 @@ const EventDetail = ({ match }) => {
 
   useEffect(() => {
     (async function () {
-      const data = await getEventDetails(id)
-      console.log("data!!!", data)
+      // const data = await getEventDetails(id)
+      // console.log("data!!!", data)
     })()
   }, [])
 
   const onClick = async () => {
     setIsCtaEnabled(false)
+    tracking('EVENT_DETAIL_CTA_CLICKED')
     const res = await triggerEvent({ id })
 
     const { status, message } = res
     if (status !== 0) {
+      tracking('EVENT_DETAIL_ERROR')
       setError(message || 'Some error occurred. Please try again')
       setTimeout(() => {
         setError('')
@@ -57,6 +60,7 @@ const EventDetail = ({ match }) => {
     }
 
     // show success graphic
+    tracking('EVENT_DETAIL_SUCCESS')
     setShowSuccess(true)
   }
 
