@@ -51,7 +51,7 @@ const Welcome = () => {
       
       <div css={textStyle} className='quick-fix-width'>
         Organize a secret gift exchange between friends or colleagues.
-        The only app with 100% secrecy. No one gets to know who is the Santa to whom -
+        The only app with 100% secrecy. No one gets to know who the Santa is to whom -
         not even the organizer!
       </div>
 
