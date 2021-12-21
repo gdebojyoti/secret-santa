@@ -9,10 +9,12 @@ const Image = (props) => {
     src = '',
     style,
     alt = '',
-    lazy = true
+    lazy = true,
+    className = ''
   } = props
   return (
     <img
+      className={className}
       src={src}
       css={[baseImageStyle, style]}
       alt={alt}

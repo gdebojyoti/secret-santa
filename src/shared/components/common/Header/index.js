@@ -9,7 +9,9 @@ const Header = () => {
     <header css={headerStyle}>
       <Image src={logo} style={logoStyle} alt='Secret Santa Dx logo' />
       <h1 css={headingStyle}>
-        Secret Santa 🤫🎅
+        Secret Santa
+        <br />
+        🤫🎅
       </h1>
     </header>
   )

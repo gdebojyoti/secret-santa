@@ -1,8 +1,8 @@
 import { footerStyle } from './style'
 
-const Footer = () => {
+const Footer = ({ style }) => {
   return (
-    <footer css={footerStyle}>
+    <footer css={[footerStyle, style]}>
       Made with ❤️ by <strong>Debojyoti Ghosh</strong>
     </footer>
   )

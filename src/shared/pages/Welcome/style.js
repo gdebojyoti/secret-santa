@@ -20,6 +20,7 @@ export const headingStyle = css`
 export const textStyle = css`
   margin-top: 15px;
   color: #555;
+  font-size: 16px;
   line-height: 1.75;
 `
 
