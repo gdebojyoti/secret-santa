@@ -8,7 +8,7 @@ import Modal from 'shared/components/common/Modal'
 import Signup from 'shared/components/Welcome/Signup'
 import Login from 'shared/components/Welcome/Login'
 
-import logo from 'shared/assets/santa-claus.png'
+import logo from 'shared/assets/santa-hat.png'
 
 import {
   pageStyle,

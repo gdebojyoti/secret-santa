@@ -6,7 +6,7 @@ export const pageStyle = css`
 `
 
 export const logoStyle = css`
-  width: 200px;
+  width: 175px;
   margin-top: 40px;
   margin-top: auto;
 `

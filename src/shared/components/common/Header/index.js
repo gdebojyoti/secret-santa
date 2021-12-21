@@ -1,6 +1,6 @@
 import Image from 'shared/components/common/Image'
 
-import logo from 'shared/assets/santa-claus.png'
+import logo from 'shared/assets/santa-hat.png'
 
 import { headerStyle, headingStyle, logoStyle } from './style'
 
