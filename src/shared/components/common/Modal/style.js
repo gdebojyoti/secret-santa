@@ -35,6 +35,7 @@ export const modalStyle = css`
   border-radius: 25px 25px 0 0;
   overflow: auto;
   animation: ${slideUp} .2s .2s forwards;
+  box-shadow: 0 0 50px 0 rgba(0,0,0,.54);
 
   &::before {
     content: '';

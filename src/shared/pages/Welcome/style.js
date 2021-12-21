@@ -28,6 +28,8 @@ export const ctaStyle = css`
 `
 
 export const flipStyle = css`
-  text-decoration: underline;
+  margin-top: 15px;
+  border-bottom: dashed 1px #aaa;
+  color: #666;
   cursor: pointer;
 `

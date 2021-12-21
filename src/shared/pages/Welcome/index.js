@@ -20,11 +20,25 @@ import {
 } from './style'
 
 const Welcome = () => {
-  const [showModal, setShowModal] = useState(true)
+  const [showModal, setShowModal] = useState(false)
   const [showSignup, setShowSignup] = useState(true)
 
   const onClickCta = () => {
+    // setShowSignup(true)
     setShowModal(true)
+  }
+
+  const onCloseModal = () => {
+    setShowModal(false)
+  }
+
+  const onFlipClick = () => {
+    setShowModal(false)
+    setShowSignup(!showSignup)
+
+    setTimeout(() => {
+      setShowModal(true)
+    }, 0)
   }
   
   return (
@@ -43,32 +57,22 @@ const Welcome = () => {
 
       <Button text='Get Started' variants='primary full-width' style={ctaStyle} onClick={onClickCta} />
 
-      {showModal && <Modal>
-        <Signup />
+      {showModal && <Modal onClose={onCloseModal}>
+        {showSignup && <Signup />}
+        {!showSignup && <Login />}
+        <Flip showSignup={showSignup} flip={onFlipClick} />
       </Modal>}
 
-      {/* {showSignup && <Signup />} */}
-      {!showSignup && <Login />}
-
-      {/* <Flip showSignup={showSignup} flip={() => setShowSignup(!showSignup)} /> */}
-
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
 
 const Flip = ({ showSignup, flip }) => {
-  if (showSignup) {
-    return (
-      <div css={flipStyle} onClick={flip}>
-        Already a user? Log in
-      </div>
-    )
-  }
-
   return (
     <div css={flipStyle} onClick={flip}>
-      Don't have an account? Sign up here
+      {showSignup ? 'Already a user' : `Don't have an account`}
+      ? <strong>{showSignup ? 'Log in' : 'Sign up'}</strong> here
     </div>
   )
 }

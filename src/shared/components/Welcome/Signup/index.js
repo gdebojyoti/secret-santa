@@ -33,7 +33,7 @@ const Signup = () => {
   }
   return (
     <>
-      <h2>Sign up</h2>
+      <h2>Sign up <span className='light'>for new users</span></h2>
       <Form onSubmit={onSubmit} fields={fields} isEnabled={isFormEnabled} error={error} cta='Sign up' />
     </>
   )

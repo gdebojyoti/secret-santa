@@ -34,7 +34,7 @@ const Login = () => {
   
   return (
     <>
-      <h2>Log in</h2>
+      <h2>Log in <span className='light'>for existing users</span></h2>
       <Form onSubmit={onSubmit} fields={fields} isEnabled={isFormEnabled} error={error} cta='Log in' />
     </>
   )

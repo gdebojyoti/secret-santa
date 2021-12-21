@@ -1,6 +1,9 @@
 import { useState } from 'react'
 
-import { errorStyle } from './style'
+import Input from 'shared/components/common/Input'
+import Button from 'shared/components/common/Button'
+
+import { formStyle, inputStyle, errorStyle, ctaStyle } from './style'
 
 const Form = ({ onSubmit: onSubmitProp, fields, isEnabled, error, cta = 'Submit' }) => {
   const [formData, setFormData] = useState({})
@@ -22,7 +25,7 @@ const Form = ({ onSubmit: onSubmitProp, fields, isEnabled, error, cta = 'Submit'
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form css={formStyle} onSubmit={onSubmit}>
       {fields.map(({ type, key, component: Component, label, placeholder, isRequired }) => {
         const [value, setValue] = useState('')
         const onChange = (e) => {
@@ -44,17 +47,30 @@ const Form = ({ onSubmit: onSubmitProp, fields, isEnabled, error, cta = 'Submit'
           }
           default: {
             return (
-              <div key={key}>
-                <label>{label}</label>
-                <input onChange={onChange} value={value} name={key} type={type} placeholder={placeholder} required={isRequired} />
-              </div>
+              <Input
+                key={key}
+                label={label}
+                onChange={onChange}
+                value={value}
+                name={key}
+                type={type}
+                placeholder={placeholder}
+                isRequired={isRequired}
+                style={inputStyle}
+              />
             )
           }
         }
       })}
 
-      {error && <div css={errorStyle}>{error}</div>}
-      <button disabled={!isEnabled} type='submit'>{cta}</button>
+      {<div css={errorStyle}>{error}</div>}
+      <Button
+        isSubmit
+        isDisabled={!isEnabled}
+        text={cta}
+        variants='primary full-width'
+        style={ctaStyle}
+      />
     </form>
   )
 }
