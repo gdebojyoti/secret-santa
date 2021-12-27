@@ -8,7 +8,7 @@ const Button = (props) => {
       disabled={isDisabled}
       type={isSubmit ? 'submit' : 'button'}
       onClick={onClick}
-      css={[buttonStyle, style]}
+      css={[buttonStyle(isDisabled), style]}
       className={cls}
     >
       {text}
